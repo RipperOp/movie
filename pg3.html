@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
+
+    
 </head>
 <body>
 </div>
@@ -13,7 +15,7 @@
 <div id="navigation">
 
 <ul>
-<li><a href="pg2.html"    class="active" href="#">HOME</a></li>
+<li><a href="pg2.html" class="active" href="#">HOME</a></li>
 <li><a href="#">NEWS</a></li>
 <li><a href="#">IN THEATERS</a></li>
 <li><a href="#">COMING SOON</a></li>
@@ -25,40 +27,94 @@
 </div>
     
     <div id="vid">
-    <video autoplay loop muted plays-inline aria-modal="true">
+    <video autoplay loop muted plays-inline aria-modal="true" id="moviefile" controls height="" width="1000" style="margin-top: 50%;">
         <source src="Jailer (2023) South {Hindi (Clear) + Tamil} Dual Audio Full Movie HEVC 720p.mkv" type="video/mp4" >
      </video>
-     <div class="container">
-        <table>
-          <td width="10%">
-            <img src="MV5BNDA5YzlhNjItMDgxNC00MjQ4LWIzMDMtYTUyMzBhNjViNDk3XkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg" alt="" width="150px" id="img">
-          </td>
-          <td>
-            <h2>Harry Potter and the Dealthy Hallows</h2>
-            <table>
-              <td width="85%">
-                <p><span></span>Loreoloremque, nam ratione. Explicabo tenetur, amet, ducimus eius modi laborum id iste, cum quia dignissimos saepe debitis sit dolores exercitationem harum fugiat nobis autem porro! Eos quo nemo unde maiores, aspernatur facilis facere fugit provident ipsa magnam, nesciunt debitis molestias enim veniam, amet sed! Architecto, ullam voluptatum. Nemo facilis unde ipsam eos rem id porro vero ad quidem aut cum consequuntur in hic quod ipsa, voluptas incidunt culpa fuga, minima atque at. Quasi, porro quas! Praesentium quo et nihil facere?</p>
-
-                <p><span>Genre </span>:Lorem ipsum dolor sit amet.</p>
-                <p><span>Actor</span> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, iure.</p>
-                <p><span>Director</span>: Lorem ipsum dolor sit amet.</p>
-                <p><span>Country</span>: Lorem, ipsum dolor.</p>
-              </td>
-              <td>
-                <p>Duration: 145min</p>
-                <p>Quality: HD</p>
-                <p>Release:2010</p>
-                <p>IMDb: 7.7</p>
-              </td>
-            </table>
-        </td>
+         </div> 
+     
+         <div class="container">
+      <table>
         <td width="10%">
-         <p class="c1">5.0 rating guicyciy</p>
+          <img src="MV5BNDA5YzlhNjItMDgxNC00MjQ4LWIzMDMtYTUyMzBhNjViNDk3XkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg" alt="" width="150px" id="img">
         </td>
+        <td>
+          <h2 id="Name">JAILER 2023</h2>
+          <table>
+            <td width="85%">
+            <p id="description"><span></span>Jailer is a 2023 Indian Tamil-language action comedy film directed by Nelson Dilipkumar and produced by Kalanithi Maran of Sun Pictures. The film stars Rajinikanth in the lead role, alongside Vinayakan, Ramya Krishnan, Vasanth Ravi, Tamannaah, Sunil, Mirnaa Menon and Yogi Babu in supporting roles. Mohanlal, Shiva Rajkumar and Jackie Shroff play guest roles.</p>
+
+              <p id="genre"><span>Genre </span> action</p>
+              <p id="Actors"><span>Actor</span> :Rajinikanth </p>
+              <p id="Director"><span>Director</span>: Nelson Dilipkumar</p>
+            </td>
+            <td>
+              <p id="Duration"><span>Duration:</span> 145min</p>
+              <p id="Quality"><span>Quality:</span> HD</p>
+              <p id="Release"><span>Release:</span>2023</p>
+              <p id="IMDB"><span>IMDB:</span> 7.7</p>
+            </td>
           </table>
-          
-          
-        </div>
+      </td>
+      <td width="10%">
+       <p class="c1"></p>
+      </td>
+        </table>
+        
+        
+      </div>
+      <script src="script.js"></script>
+<script>
+
+  const Name = document.getElementById('Name'),
+   Description = document.getElementById('description'),
+   Genre = document.getElementById('genre'),
+   Actors = document.getElementById('Actors'),
+   Director = document.getElementById('Director'),
+   Duration = document.getElementById('Duration'),
+   Quality = document.getElementById('Quality'),
+   Release = document.getElementById('Release'),
+   IMDB = document.getElementById('IMDB'); 
+   MovieFile = document.getElementById('moviefile');
+   
+
+  function MovieInfo()
+  {
+    let moviesobj = [
+    {
+        Name: 'JAILER',
+        desc: '<span></span>Jailer is a 2023 Indian Tamil-language action comedy film directed by Nelson Dilipkumar and produced by Kalanithi Maran of Sun Pictures. The film stars Rajinikanth in the lead role, alongside Vinayakan, Ramya Krishnan, Vasanth Ravi, Tamannaah, Sunil, Mirnaa Menon and Yogi Babu in supporting roles. Mohanlal, Shiva Rajkumar and Jackie Shroff play guest roles.',
+        genre: `<span>Genre </span> action`,
+        actors: '<span>Actor</span> :Rajinikanth ',
+        director: '<span>Director</span>: Nelson Dilipkumar',
+        duration: '<span>Duration:</span> 145min',
+        quality: '<span>Quality:</span> HD',
+        release: '<span>Release:</span>2023',
+        imdb: '<span>IMDB: 7.7</span>',
+        moviefile: 'Jailer.mkv'    
+
+    },
+    
+  ];
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const movieid = urlParams.get('id');
+   
+    Name.textContent = moviesobj[movieid].Name;
+    Description.innerHTML = moviesobj[movieid].desc;
+    Genre.innerHTML = moviesobj[movieid].genre;
+    Actors.innerHTML = moviesobj[movieid].actors;
+    Director.innerHTML = moviesobj[movieid].director;
+    Duration.innerHTML = moviesobj[movieid].duration;
+    Quality.innerHTML = moviesobj[movieid].quality;
+    Release.innerHTML = moviesobj[movieid].release;
+    IMDB.innerHTML =  moviesobj[movieid].imdb;
+    MovieFile.src = moviesobj[movieid].moviefile;
+    
+  }
+  MovieInfo();
+</script>
+
           
 <style>
     body {
@@ -69,10 +125,14 @@
 	background-color:black;
 	/* background:url('images/body-bg.gif'); */
 }
-#vid{
-            margin: 10px 100px 300px;
-            .container
+    #vid{
+      margin: 0 auto;
+ width: 300px;
+ display: block;
+ margin-left: 17%;
+            
         }
+      
         #shell {
 	width:980px;
 	margin:0 auto;
@@ -111,6 +171,7 @@
       height: 280px;
       background-color: rgb(212, 26, 26);
       color: white;
+      margin: 0px auto;
     }
     #img
     {
@@ -156,5 +217,7 @@
     }
     
 }-->
+
+
 </body>
 </html>
